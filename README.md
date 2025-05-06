@@ -16,12 +16,8 @@ An Electron-based desktop application that leverages local and API-based languag
 
 ### Prerequisites
 
-1. **Node.js & npm**: Required to run the Electron application
+1. **Node.js & npm- 14.18.0+**: Required to run the Electron application
 2. **Python 3.8+**: Required for running the language models
-3. **Required Python packages**:
-   ```
-   pip install -r requirements.txt
-   ```
 
 ### Installation
 
@@ -31,12 +27,17 @@ An Electron-based desktop application that leverages local and API-based languag
    cd CodeExplainer-LLM
    ```
 
-2. Install dependencies:
+2. Install requirements:
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. Install dependencies:
    ```
    npm install
    ```
 
-3. Download models (optional - they will be downloaded on demand):
+4. Download models (optional - they will be downloaded on demand during step 2):
    ```
    python download_models.py --all
    ```
