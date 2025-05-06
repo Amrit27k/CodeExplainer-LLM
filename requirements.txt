@@ -1,0 +1,9 @@
+# Main model dependencies
+ctransformers>=0.2.24    # For running GGUF models
+requests>=2.28.0
+tqdm>=4.64.1             # For progress bars
+anthropic>=0.22.0        # For Claude API access
+
+# Optional dependencies for additional features
+numpy>=1.22.0            # Numerical operations
+huggingface_hub>=0.13.0

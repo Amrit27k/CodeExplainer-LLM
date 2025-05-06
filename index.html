@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
+    <title>Code Explainer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Code Explainer</h1>
+            <div class="model-controls">
+                <div>
+                    <label for="model-select">Model:</label>
+                    <select id="model-select"></select>
+                </div>
+                <div id="api-key-container">
+                    <label for="api-key">API Key:</label>
+                    <input type="password" id="api-key" placeholder="Enter API key">
+                </div>
+                <div>
+                    <label for="max-tokens">Max Tokens:</label>
+                    <input type="number" id="max-tokens" value="1024" min="256" max="4096">
+                </div>
+                <div>
+                    <label for="temperature">Temperature:</label>
+                    <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                    <span id="temperature-value">0.7</span>
+                </div>
+                <div>
+                    <label for="context-size">Context Size:</label>
+                    <input type="number" id="context-size" value="2048" min="1024" max="8192" step="1024">
+                </div>
+                <button id="clear-cache-btn">Clear Cache</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="file-explorer">
+                <div class="file-actions">
+                    <h2>Files</h2>
+                    <button id="open-file-btn">Open Files</button>
+                </div>
+                <div id="file-list"></div>
+            </div>
+
+            <div class="editor-container">
+                <div class="code-editor">
+                    <h2>Code</h2>
+                    <div id="editor"></div>
+                </div>
+
+                <div class="explanation">
+                    <div class="explanation-header">
+                        <h2>Explanation</h2>
+                        <div class="performance-metrics">
+                            <span id="latency-display">Latency: N/A</span>
+                            <span id="cache-status"></span>
+                        </div>
+                    </div>
+                    <div id="explanation-content"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="explain-btn" disabled>Explain Code</button>
+            <div class="status-bar">
+                <span id="status">Ready</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Include Monaco Editor -->
+    <script src="monaco-editor/min/vs/loader.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

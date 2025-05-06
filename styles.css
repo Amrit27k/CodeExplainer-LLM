@@ -1,0 +1,354 @@
+/* styles.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --border-color: #ddd;
+    --header-height: 110px;
+    --footer-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    height: var(--header-height);
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.model-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.model-controls div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#api-key-container {
+    flex-grow: 1;
+}
+
+#api-key {
+    flex-grow: 1;
+    max-width: 300px;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+select, input, button {
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.file-explorer {
+    width: 200px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.file-actions {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#file-list {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.file-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-item:hover {
+    background-color: #eee;
+}
+
+.file-item.active {
+    background-color: #e3e3e3;
+    font-weight: bold;
+}
+
+.editor-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.code-editor, .explanation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-editor h2, .explanation h2, .file-actions h2 {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 16px;
+}
+
+#editor {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.explanation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid var(--border-color);
+    padding-right: 10px;
+}
+
+.performance-metrics {
+    font-size: 12px;
+    color: #666;
+}
+
+#explanation-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+
+footer {
+    background-color: var(--primary-color);
+    height: var(--footer-height);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#explain-btn {
+    padding: 8px 20px;
+    font-size: 16px;
+    background-color: var(--accent-color);
+}
+
+#explain-btn:hover {
+    background-color: #c0392b;
+}
+
+.status-bar {
+    color: white;
+    font-size: 14px;
+}
+
+/* Loading indicator */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: "Loading...";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    z-index: 10;
+}
+
+/* Success message */
+.success-message {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* Error message */
+.error-message {
+    color: var(--accent-color);
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+/* Cache status */
+#cache-status {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.cached {
+    color: #27ae60;
+}
+
+/* Model download container */
+.model-download-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.download-model-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #16a085;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.download-model-btn:hover {
+    background-color: #138a72;
+}
+
+.download-model-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Rate limit status */
+.rate-limit-status {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+    display: none;
+}
+
+.rate-limit-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rate-limit-info div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* High usage warning */
+.rate-limit-warning {
+    color: #e67e22;
+}
+
+/* Critical usage warning */
+.rate-limit-critical {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Fix for the small checkbox next to Clear Cache button */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 36px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0 5px;
+}
+
+input[type="checkbox"]:checked {
+    background: #3498db;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    background: white;
+    transition: left 0.3s;
+}
+
+input[type="checkbox"]:checked::before {
+    left: 18px;
+}

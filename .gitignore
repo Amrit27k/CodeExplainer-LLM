@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Electron
+dist/
+user_data/
+release-builds/
+
+# Models
+models/
+logs/
+
+# Monaco Editor
+monaco-editor/
+
+# Environment variables
+.env
+
+# sys files
+__pycache__/
+*.pyc
+package-lock.json
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
